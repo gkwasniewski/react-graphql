@@ -23,6 +23,7 @@ class ProductList extends Component {
         super(props)
         this.state = {
             data: [],
+            showItemId: false
         }
     }
 
@@ -44,7 +45,7 @@ class ProductList extends Component {
                 {({ loading, error, data }) => {
 
                 if (loading) {
-                return ( 
+                    return ( 
                         <div className="product-list-loader">
                             <Loader type="TailSpin" color="#3f51b5" height={80} width={80}/>
                         </div>
@@ -80,6 +81,7 @@ class ProductList extends Component {
                                     <TableRow key={product.id} className="product-row" onClick={this.showID(product)} hover>
                                         <TableCell>{product.name}</TableCell>
                                         <TableCell>{product.price}</TableCell>
+                                        {/* <TableCell>{product.id}</TableCell> */}
                                     </TableRow>
                                 )
                             })}

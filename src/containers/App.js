@@ -5,6 +5,7 @@ import Typography from '@material-ui/core/Typography';
 
 import './App.css';
 import ProductList from '../components/products/ProductList'
+import Cart from '../components/cart/Cart'
 
 class App extends Component {
   render() {
@@ -17,7 +18,10 @@ class App extends Component {
             </Typography>
           </Toolbar>
         </AppBar>
-        <ProductList/>
+        <div className="app-container">
+          <ProductList/>
+          <Cart/>
+        </div>
       </div>
     )
   }
