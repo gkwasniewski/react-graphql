@@ -4,6 +4,7 @@ import gql from 'graphql-tag';
 import _ from 'lodash';
 import { Table, TableBody, TableCell, TableHead, TableRow } from '@material-ui/core';
 import Paper from '@material-ui/core/Paper';
+import Loader from 'react-loader-spinner'
 
 import Product from "./Product";
 import './ProductList.css';
@@ -33,16 +34,30 @@ class ProductList extends Component {
         }
     };
 
+    showID = (id) => (e) => {
+        console.log(id)
+    }
+
     render() {
         return (
             <Query query={GQL_QUERY}>
                 {({ loading, error, data }) => {
-                if (loading) return <div>Fetching</div>
-                if (error) return <div>Error</div>
+
+                if (loading) {
+                return ( 
+                        <div className="product-list-loader">
+                            <Loader type="TailSpin" color="#3f51b5" height={80} width={80}/>
+                        </div>
+                    )
+                }
+
+                if (error) {
+                    return <div>Error</div>
+                }
                 
                 let productsToRender = this.state.data;
 
-                if(this.state.data.length === 0 ) {
+                if (this.state.data.length === 0) {
                     productsToRender = data.products;
                 }
                
@@ -62,10 +77,9 @@ class ProductList extends Component {
                             <TableBody>
                             {productsToRender.map(product => {
                                 return(
-                                    <TableRow key={product.id} className="product-row">
+                                    <TableRow key={product.id} className="product-row" onClick={this.showID(product)} hover>
                                         <TableCell>{product.name}</TableCell>
                                         <TableCell>{product.price}</TableCell>
-                                        {/* <td>{product.id}</td> */}
                                     </TableRow>
                                 )
                             })}
