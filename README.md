@@ -1,4 +1,4 @@
-# React QraphQL App
+# React GraphQL App
 
 ## Run project
 Runs the app in development mode.
