@@ -1,3 +1,9 @@
-.product-list-table {
-    width: 200px !important;
+.container {
+    width: 50vw;
+    height: 80vh;
+    overflow-x: auto;
+    
+    .product-list-table {
+        // max-width: 400px !important;
+    }
 }

@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import { Query } from 'react-apollo';
 import gql from 'graphql-tag';
 import _ from 'lodash';
+import { Table, TableBody, TableCell, TableHead, TableRow } from '@material-ui/core';
+import Paper from '@material-ui/core/Paper';
 
 import Product from "./Product";
 import './ProductList.css';
@@ -45,31 +47,31 @@ class ProductList extends Component {
                 }
                
                 return (
-                    <div>
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th onClick={this.onSort('productName', productsToRender)}>
+                    <Paper className="container">
+                        <Table className="product-list-table">
+                            <TableHead>
+                                <TableRow>
+                                    <TableCell onClick={this.onSort('productName', productsToRender)}>
                                         Product Name
-                                    </th>
-                                    <th onClick={this.onSort('productPrice', productsToRender)}>
+                                    </TableCell>
+                                    <TableCell onClick={this.onSort('productPrice', productsToRender)}>
                                         Product Price
-                                    </th>
-                                </tr>
-                            </thead>
-                            <tbody>
+                                    </TableCell>
+                                </TableRow>
+                            </TableHead>
+                            <TableBody>
                             {productsToRender.map(product => {
                                 return(
-                                    <tr key={product.id} className="product-row">
-                                        <td>{product.name}</td>
-                                        <td>{product.price}</td>
-                                        <td>{product.id}</td>
-                                    </tr>
+                                    <TableRow key={product.id} className="product-row">
+                                        <TableCell>{product.name}</TableCell>
+                                        <TableCell>{product.price}</TableCell>
+                                        {/* <td>{product.id}</td> */}
+                                    </TableRow>
                                 )
                             })}
-                            </tbody>
-                        </table>
-                    </div>
+                            </TableBody>
+                        </Table>
+                    </Paper>
                 )
             }}
          </Query>
