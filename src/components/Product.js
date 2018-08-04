@@ -1,13 +1,11 @@
 import React, { Component } from 'react'
-
+import Table, { TableBody, TableCell, TableHead, TableRow } from '@material-ui/core';
 class Product extends Component {
   render() {
     return (
-      <div>
-        <div>
+        <TableCell>
           {this.props.product.name} ({this.props.product.price})
-        </div>
-      </div>
+        </TableCell>
     )
   }
 }
