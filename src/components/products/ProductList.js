@@ -7,7 +7,6 @@ import Paper from '@material-ui/core/Paper';
 import Loader from 'react-loader-spinner'
 import store from '../../store'
 
-import Product from "./Product";
 import './ProductList.css';
 
 const GQL_QUERY = gql`{
@@ -32,7 +31,9 @@ class ProductList extends Component {
         if (column === 'productName') {
             this.setState({data: _.orderBy(dataToSort, ['name'], ['asc'])})
         } else {
-            this.setState({data: _.orderBy(dataToSort, ['price'], ['asc'])})
+            this.setState({data: _.orderBy(dataToSort, (o) => {
+                return parseFloat(o.price)
+            })})
         }
     };
 
