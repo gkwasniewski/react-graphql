@@ -3,7 +3,7 @@
 ## Run project
 Runs the app in development mode.
 
-`npm start` or `yarn start`
+`npm install & npm start` or `yarn start`
 
 ## Build project
 Builds the app for production
