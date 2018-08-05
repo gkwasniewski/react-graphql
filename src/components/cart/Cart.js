@@ -11,8 +11,8 @@ class Cart extends Component {
     render() {
         //Render single cart item
         let productItem;
-        
-        if(this.props.products.length == 0) {
+
+        if(this.props.products.length === 0) {
             productItem = <div className="cart-empty">Cart is empty</div>
         } else {
             productItem = this.props.products.map((element, index) => {

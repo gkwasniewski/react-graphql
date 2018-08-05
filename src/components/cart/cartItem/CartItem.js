@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
-import DeleteOutlinedIcon from '@material-ui/icons/DeleteOutlined';
 import RemoveShoppingCart from '@material-ui/icons/RemoveShoppingCart'
 
 import './CartItem.css';
