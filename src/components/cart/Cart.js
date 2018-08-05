@@ -1,9 +1,6 @@
 import React, { Component } from 'react'
 import Paper from '@material-ui/core/Paper';
 import _ from 'lodash';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
 
 import './Cart.css';
 import CartItem from './cartItem/CartItem';

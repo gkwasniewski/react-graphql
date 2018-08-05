@@ -37,13 +37,13 @@ class ProductList extends Component {
     //Sort products list by name and price
     onSort = (column, dataToSort) => (e) => {  
         if (column === 'productName') {
-            if(this.state.sortedNamesBy == 'asc') {
+            if(this.state.sortedNamesBy === 'asc') {
                 this.setState({data: _.orderBy(dataToSort, ['name'], ['desc']), sortedNamesBy: 'desc'})
             } else {
                 this.setState({data: _.orderBy(dataToSort, ['name'], ['asc']), sortedNamesBy: 'asc'})
             }  
         } else {
-            if(this.state.sortedPriceBy == 'desc') {
+            if(this.state.sortedPriceBy === 'desc') {
                 this.setState({data: _.orderBy(dataToSort, (o) => {
                     return parseFloat(o.price)
                 }), sortedPriceBy: 'asc'})
@@ -55,13 +55,14 @@ class ProductList extends Component {
         }
     };
 
+    //Handle quantity field change
     handleChange = (e) => {
         this.setState({quantity: e.currentTarget.value})
     }
 
     //Add item to cart
     addToCart = (product) => (e) => {
-        if (this.state.quantity == 0) {
+        if (this.state.quantity <= 0) {
             return
         } else {
             store.dispatch({type: 'ADD_TO_CART', data: {
@@ -79,7 +80,8 @@ class ProductList extends Component {
             //Fetch GraphQL Data
             <Query query={GQL_QUERY}>
                 {({ loading, error, data }) => {
-
+                
+                //Loading component
                 if (loading) {
                     return ( 
                         <div className="product-list__loader">
@@ -88,26 +90,29 @@ class ProductList extends Component {
                     )
                 }
 
+                //Error handler
                 if (error) {
                     return <div>Error</div>
                 }
                 
+                //Save results to variable
                 let productsToRender = this.state.data;
 
                 if (this.state.data.length === 0) {
                     productsToRender = data.products;
                 }
 
+                //Sorting icon
                 let sortingByPriceIcon;
                 let sortingByNameIcon
 
-                if(this.state.sortedNamesBy == 'asc') {
+                if(this.state.sortedNamesBy === 'asc') {
                     sortingByNameIcon = <ArrowUp className="sorting-icon"></ArrowUp>
                 } else {
                     sortingByNameIcon = <ArrowDown className="sorting-icon"></ArrowDown>
                 }
 
-                if(this.state.sortedPriceBy == 'asc') {
+                if(this.state.sortedPriceBy === 'asc') {
                     sortingByPriceIcon = <ArrowUp className="sorting-icon"></ArrowUp>
                 } else {
                     sortingByPriceIcon = <ArrowDown className="sorting-icon"></ArrowDown>

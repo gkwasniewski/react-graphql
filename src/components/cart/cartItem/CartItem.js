@@ -3,7 +3,6 @@ import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
 import DeleteOutlinedIcon from '@material-ui/icons/DeleteOutlined';
-import _ from 'lodash';
 
 import './CartItem.css';
 import store from '../../../store'
