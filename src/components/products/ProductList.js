@@ -5,12 +5,12 @@ import _ from 'lodash';
 import { Table, TableBody, TableCell, TableHead, TableRow } from '@material-ui/core';
 import Paper from '@material-ui/core/Paper';
 import Loader from 'react-loader-spinner'
-import store from '../../store'
 
+import store from '../../store'
 import './ProductList.css';
 
 const GQL_QUERY = gql`{
-    products: allProducts(count: 25) {
+    products: allProducts(count: 100) {
         id
         name
         price
@@ -22,8 +22,7 @@ class ProductList extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            data: [],
-            showItemId: false
+            data: []
         }
     }
 
@@ -53,7 +52,7 @@ class ProductList extends Component {
 
                 if (loading) {
                     return ( 
-                        <div className="product-list-loader">
+                        <div className="product-list__loader">
                             <Loader type="TailSpin" color="#3f51b5" height={80} width={80}/>
                         </div>
                     )
@@ -88,7 +87,6 @@ class ProductList extends Component {
                                     <TableRow key={product.id} className="product-row" onClick={this.addToCart(product)} hover>
                                         <TableCell>{product.name}</TableCell>
                                         <TableCell>{product.price}</TableCell>
-                                        {/* <TableCell>{product.id}</TableCell> */}
                                     </TableRow>
                                 )
                             })}

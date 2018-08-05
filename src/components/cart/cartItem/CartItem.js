@@ -3,12 +3,14 @@ import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
 
+import './CartItem.css';
+
 class CartItem extends Component {
     
     render() {
         return (     
             <div>
-                <Card>
+                <Card className="cart-product-item">
                     <CardContent>
                         <Typography variant="headline">
                             {this.props.name}

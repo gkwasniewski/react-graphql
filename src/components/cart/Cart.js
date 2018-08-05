@@ -7,12 +7,11 @@ import CartItem from './cartItem/CartItem';
 class Cart extends Component {
     
     render() {
-
-        let productItem = <div></div>
-
-        if (this.props.products !== undefined) {
-            productItem = <CartItem id={this.props.products.id} name={this.props.products.name} price={this.props.products.price}></CartItem>
-        }
+        console.log(this.props.products)
+        
+        const productItem = this.props.products.map(element => {
+            return <CartItem id={element.id} name={element.name} price={element.price} key={element.id}></CartItem>
+        });
 
         return (     
             <div>

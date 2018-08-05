@@ -1,5 +1,7 @@
 .cart-container {
     margin-top: 2%;
     margin-left: 2%;
-    width: 45vw;
+    min-width: 45vw;
+    height: 90vh;
+    overflow-x: auto;
 }

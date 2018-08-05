@@ -2,14 +2,16 @@ import React, { Component } from 'react';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
-import store from '../store'
+
 import { connect } from "react-redux";
+import store from '../store'
+
 import './App.css';
 import ProductList from '../components/products/ProductList'
 import Cart from '../components/cart/Cart'
 
 class App extends Component {
-  
+
   constructor() {
     super()
     store.subscribe(() => {
@@ -39,7 +41,7 @@ class App extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    data: state.data
+    data: state
   }
 };
 
