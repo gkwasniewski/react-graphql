@@ -26,25 +26,37 @@ class ProductList extends Component {
         super(props)
         this.state = {
             data: [],
-            quantity: ''
+            quantity: '',
+            sortedNamesBy: '',
+            sortedPriceBy: ''
         }
     }
 
     //Sort products list by name and price
-    onSort = (column, dataToSort) => (e) => {     
+    onSort = (column, dataToSort) => (e) => {  
         if (column === 'productName') {
-            this.setState({data: _.orderBy(dataToSort, ['name'], ['asc'])})
+            if(this.state.sortedNamesBy == 'asc') {
+                this.setState({data: _.orderBy(dataToSort, ['name'], ['desc']), sortedNamesBy: 'desc'})
+            } else {
+                this.setState({data: _.orderBy(dataToSort, ['name'], ['asc']), sortedNamesBy: 'asc'})
+            }  
         } else {
-            this.setState({data: _.orderBy(dataToSort, (o) => {
-                return parseFloat(o.price)
-            })})
+            if(this.state.sortedPriceBy == 'desc') {
+                this.setState({data: _.orderBy(dataToSort, (o) => {
+                    return parseFloat(o.price)
+                }), sortedPriceBy: 'asc'})
+            } else {
+                this.setState({data: _.orderBy(dataToSort, (o) => {
+                    return parseFloat(o.price)
+                }).reverse(), sortedPriceBy: 'desc'})
+            }
         }
     };
 
     handleChange = (e) => {
         this.setState({quantity: e.currentTarget.value})
     }
-    
+
     //Add item to cart
     addToCart = (product) => (e) => {
         if (this.state.quantity == 0) {
