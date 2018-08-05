@@ -46,13 +46,17 @@ class ProductList extends Component {
     }
     //Add item to cart
     addToCart = (product) => (e) => {
-        store.dispatch({type: 'ADD_TO_CART', data: {
-            'id': product.id, 
-            'name': product.name, 
-            'price': product.price,
-            'quantity': this.state.quantity
-            }
-        })
+        if (this.state.quantity == 0) {
+            return
+        } else {
+            store.dispatch({type: 'ADD_TO_CART', data: {
+                'id': product.id, 
+                'name': product.name, 
+                'price': product.price,
+                'quantity': this.state.quantity
+                }
+            })
+        }
     }
 
     render() {
