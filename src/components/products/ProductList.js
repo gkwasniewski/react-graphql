@@ -4,7 +4,9 @@ import gql from 'graphql-tag';
 import _ from 'lodash';
 import { Table, TableBody, TableCell, TableHead, TableRow } from '@material-ui/core';
 import Paper from '@material-ui/core/Paper';
-import Icon from '@material-ui/icons/AddCircleOutline'
+import AddCircleOutline from '@material-ui/icons/AddCircleOutline'
+import ArrowUp from '@material-ui/icons/KeyboardArrowUp'
+import ArrowDown from '@material-ui/icons/KeyboardArrowDown'
 import Loader from 'react-loader-spinner'
 import TextField from '@material-ui/core/TextField';
 
@@ -95,6 +97,22 @@ class ProductList extends Component {
                 if (this.state.data.length === 0) {
                     productsToRender = data.products;
                 }
+
+                let sortingByPriceIcon;
+                let sortingByNameIcon
+
+                if(this.state.sortedNamesBy == 'asc') {
+                    sortingByNameIcon = <ArrowUp className="sorting-icon"></ArrowUp>
+                } else {
+                    sortingByNameIcon = <ArrowDown className="sorting-icon"></ArrowDown>
+                }
+
+                if(this.state.sortedPriceBy == 'asc') {
+                    sortingByPriceIcon = <ArrowUp className="sorting-icon"></ArrowUp>
+                } else {
+                    sortingByPriceIcon = <ArrowDown className="sorting-icon"></ArrowDown>
+                }
+               
                
                 return (
                     <Paper className="container">
@@ -103,9 +121,11 @@ class ProductList extends Component {
                                 <TableRow>
                                     <TableCell onClick={this.onSort('productName', productsToRender)} className="product-list-table__head__title">
                                         Product Name
+                                        {sortingByNameIcon}
                                     </TableCell>
                                     <TableCell onClick={this.onSort('productPrice', productsToRender)} className="product-list-table__head__title">
                                         Product Price
+                                        {sortingByPriceIcon}
                                     </TableCell>
                                     <TableCell>
                                     </TableCell>
@@ -125,7 +145,7 @@ class ProductList extends Component {
                                                 type="number"
                                                 margin="normal"
                                             />
-                                            <Icon onClick={this.addToCart(product, this.props.quantity)} color="action"></Icon>
+                                            <AddCircleOutline onClick={this.addToCart(product, this.props.quantity)} color="action"></AddCircleOutline>
                                         </TableCell>
                                     </TableRow>
                                 )
