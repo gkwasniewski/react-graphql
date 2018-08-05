@@ -18,7 +18,7 @@ class Cart extends Component {
         });
 
         //Sum products
-        const sumProductsPrice = _.sumBy(this.props.products, (o) => { return parseFloat(o.price); })
+        const sumProductsPrice = _.sumBy(this.props.products, (o) => { return parseFloat(o.quantity*o.price); })
         const sumTotalItems = _.sumBy(this.props.products, (o) => { return parseFloat(o.quantity); })
 
         return (     

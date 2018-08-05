@@ -44,6 +44,7 @@ class ProductList extends Component {
     handleChange = (e) => {
         this.setState({quantity: e.currentTarget.value})
     }
+    
     //Add item to cart
     addToCart = (product) => (e) => {
         if (this.state.quantity == 0) {

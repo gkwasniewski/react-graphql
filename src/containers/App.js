@@ -31,7 +31,7 @@ class App extends Component {
 
   render() {
     console.log(this.props)
-    return   (
+    return (
       <div>
         <AppBar position="static">
           <Toolbar>
