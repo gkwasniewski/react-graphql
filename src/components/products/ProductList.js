@@ -37,7 +37,7 @@ class ProductList extends Component {
     };
 
     addToCart = (product) => (e) => {
-        store.dispatch({type: 'ADD-TO-CART', data: {
+        store.dispatch({type: 'ADD_TO_CART', data: {
             'id': product.id, 
             'name': product.name, 
             'price': product.price
