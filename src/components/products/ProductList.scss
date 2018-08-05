@@ -14,7 +14,7 @@
     .product-list-table {
 
         .product-list-table__head {
-            background-color: #3f51b5;
+            background-color: #009688;
             
             .product-list-table__head__title {
                 color: #ecf0f1;
@@ -24,6 +24,23 @@
                     width: 14px;
                     height: 14px;
                 }
+            }
+        }
+
+        .product-list-item--quantity {
+            width: 70px;
+
+            label {
+                font-size: 13px;
+            }
+        }
+        .product-list-item--add-to-cart {
+            margin-left: 25px;
+            width: 30px;
+            height: 30px;
+
+            &:hover {
+                color: #009688;
             }
         }
     }

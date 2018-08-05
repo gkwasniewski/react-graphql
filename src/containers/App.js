@@ -33,7 +33,7 @@ class App extends Component {
     console.log(this.props)
     return (
       <div>
-        <AppBar position="static">
+        <AppBar position="static" className="app-header">
           <Toolbar>
             <Typography variant="title" color="inherit">
               React GraphQL

@@ -3,6 +3,7 @@ import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
 import DeleteOutlinedIcon from '@material-ui/icons/DeleteOutlined';
+import RemoveShoppingCart from '@material-ui/icons/RemoveShoppingCart'
 
 import './CartItem.css';
 import store from '../../../store'
@@ -26,7 +27,7 @@ class CartItem extends Component {
                             {this.props.name}
                         </Typography>
                         <Typography component="h2" className="cart-product-item__text">
-                            Price: {this.props.quantity * this.props.price}
+                            Price: {this.props.quantity * this.props.price}$
                         </Typography>
                         <Typography component="p" className="cart-product-item__text">
                             Product ID: {this.props.id}
@@ -34,7 +35,7 @@ class CartItem extends Component {
                         <Typography component="p" className="cart-product-item__text">
                             Quantity: {this.props.quantity}
                         </Typography>
-                        <DeleteOutlinedIcon onClick={this.addToCart(this.props.id)}className="cart-product-item--delete"/>
+                        <RemoveShoppingCart onClick={this.addToCart(this.props.id)}className="cart-product-item--delete"/>
                     </CardContent>
                 </Card>
             </div>

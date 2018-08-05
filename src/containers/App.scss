@@ -1,5 +1,7 @@
 .search-input {
     color: white;
+    width: 50% !important;
+    margin-left: 50% !important;
 
     label {
         color: white !important;
@@ -12,7 +14,9 @@
         border-bottom: 2px solid white;
     }
 }
-
+.app-header {
+    background-color: #009688 !important;
+}
 .app-container {
     display: flex;
 }

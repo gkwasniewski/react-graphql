@@ -4,7 +4,7 @@ import gql from 'graphql-tag';
 import _ from 'lodash';
 import { Table, TableBody, TableCell, TableHead, TableRow } from '@material-ui/core';
 import Paper from '@material-ui/core/Paper';
-import AddCircleOutline from '@material-ui/icons/AddCircleOutline'
+import AddShoppingCart from '@material-ui/icons/AddShoppingCart'
 import ArrowUp from '@material-ui/icons/KeyboardArrowUp'
 import ArrowDown from '@material-ui/icons/KeyboardArrowDown'
 import Loader from 'react-loader-spinner'
@@ -85,7 +85,7 @@ class ProductList extends Component {
                 if (loading) {
                     return ( 
                         <div className="product-list__loader">
-                            <Loader type="TailSpin" color="#3f51b5" height={80} width={80}/>
+                            <Loader type="TailSpin" color="#009688" height={80} width={80}/>
                         </div>
                     )
                 }
@@ -129,7 +129,7 @@ class ProductList extends Component {
                                         {sortingByNameIcon}
                                     </TableCell>
                                     <TableCell onClick={this.onSort('productPrice', productsToRender)} className="product-list-table__head__title">
-                                        Product Price
+                                        Product Price $
                                         {sortingByPriceIcon}
                                     </TableCell>
                                     <TableCell>
@@ -149,8 +149,9 @@ class ProductList extends Component {
                                                 label="Quantity"
                                                 type="number"
                                                 margin="normal"
+                                                className="product-list-item--quantity"
                                             />
-                                            <AddCircleOutline onClick={this.addToCart(product, this.props.quantity)} color="action"></AddCircleOutline>
+                                            <AddShoppingCart onClick={this.addToCart(product, this.props.quantity)} color="action" className="product-list-item--add-to-cart"></AddShoppingCart>
                                         </TableCell>
                                     </TableRow>
                                 )
