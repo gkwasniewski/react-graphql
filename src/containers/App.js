@@ -9,6 +9,14 @@ import ProductList from '../components/products/ProductList'
 import Cart from '../components/cart/Cart'
 
 class App extends Component {
+  
+  constructor() {
+    super()
+    store.subscribe(() => {
+      console.log(store.getState())
+    })
+  }
+
   render() {
     console.log(this.props)
     return   (
@@ -21,8 +29,8 @@ class App extends Component {
           </Toolbar>
         </AppBar>
         <div className="app-container">
-          <ProductList/>
-          <Cart products={this.props.count}/>
+          <ProductList />
+          <Cart products={this.props.data}/>
         </div>
       </div>
     )
@@ -31,7 +39,7 @@ class App extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    count: state.count // (1)
+    data: state.data
   }
 };
 

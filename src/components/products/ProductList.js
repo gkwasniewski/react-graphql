@@ -5,6 +5,7 @@ import _ from 'lodash';
 import { Table, TableBody, TableCell, TableHead, TableRow } from '@material-ui/core';
 import Paper from '@material-ui/core/Paper';
 import Loader from 'react-loader-spinner'
+import store from '../../store'
 
 import Product from "./Product";
 import './ProductList.css';
@@ -35,8 +36,13 @@ class ProductList extends Component {
         }
     };
 
-    showID = (id) => (e) => {
-        console.log(id)
+    addToCart = (product) => (e) => {
+        store.dispatch({type: 'ADD-TO-CART', data: {
+            'id': product.id, 
+            'name': product.name, 
+            'price': product.price
+            }
+        })
     }
 
     render() {
@@ -78,7 +84,7 @@ class ProductList extends Component {
                             <TableBody>
                             {productsToRender.map(product => {
                                 return(
-                                    <TableRow key={product.id} className="product-row" onClick={this.showID(product)} hover>
+                                    <TableRow key={product.id} className="product-row" onClick={this.addToCart(product)} hover>
                                         <TableCell>{product.name}</TableCell>
                                         <TableCell>{product.price}</TableCell>
                                         {/* <TableCell>{product.id}</TableCell> */}
