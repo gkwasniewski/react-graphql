@@ -72,12 +72,12 @@ class ProductList extends Component {
                 return (
                     <Paper className="container">
                         <Table className="product-list-table">
-                            <TableHead>
+                            <TableHead className="product-list-table__head">
                                 <TableRow>
-                                    <TableCell onClick={this.onSort('productName', productsToRender)}>
+                                    <TableCell onClick={this.onSort('productName', productsToRender)} className="product-list-table__head__title">
                                         Product Name
                                     </TableCell>
-                                    <TableCell onClick={this.onSort('productPrice', productsToRender)}>
+                                    <TableCell onClick={this.onSort('productPrice', productsToRender)} className="product-list-table__head__title">
                                         Product Price
                                     </TableCell>
                                 </TableRow>

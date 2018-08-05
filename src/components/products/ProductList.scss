@@ -12,6 +12,13 @@
     overflow-x: auto;
     
     .product-list-table {
-        // max-width: 400px !important;
+
+        .product-list-table__head {
+            background-color: #3f51b5;
+            
+            .product-list-table__head__title {
+                color: white;
+            }
+        }
     }
 }
