@@ -10,6 +10,7 @@ import store from '../../../store'
 
 class CartItem extends Component {
 
+    //Remove product from cart
     addToCart = (id) => (e) => {
         store.dispatch({type: 'DELETE_FROM_CART', data: {
             'id': id

@@ -4,11 +4,13 @@ import gql from 'graphql-tag';
 import _ from 'lodash';
 import { Table, TableBody, TableCell, TableHead, TableRow } from '@material-ui/core';
 import Paper from '@material-ui/core/Paper';
+import Icon from '@material-ui/icons/AddCircleOutline'
 import Loader from 'react-loader-spinner'
 
 import store from '../../store'
 import './ProductList.css';
 
+//GraphQL query 
 const GQL_QUERY = gql`{
     products: allProducts(count: 100) {
         id
@@ -26,6 +28,7 @@ class ProductList extends Component {
         }
     }
 
+    //Sort products list by name and price
     onSort = (column, dataToSort) => (e) => {     
         if (column === 'productName') {
             this.setState({data: _.orderBy(dataToSort, ['name'], ['asc'])})
@@ -36,6 +39,7 @@ class ProductList extends Component {
         }
     };
 
+    //Add item to cart
     addToCart = (product) => (e) => {
         store.dispatch({type: 'ADD_TO_CART', data: {
             'id': product.id, 
@@ -47,6 +51,7 @@ class ProductList extends Component {
 
     render() {
         return (
+            //Fetch GraphQL Data
             <Query query={GQL_QUERY}>
                 {({ loading, error, data }) => {
 
@@ -79,14 +84,17 @@ class ProductList extends Component {
                                     <TableCell onClick={this.onSort('productPrice', productsToRender)} className="product-list-table__head__title">
                                         Product Price
                                     </TableCell>
+                                    <TableCell>
+                                    </TableCell>
                                 </TableRow>
                             </TableHead>
                             <TableBody>
                             {productsToRender.map(product => {
                                 return(
-                                    <TableRow key={product.id} className="product-row" onClick={this.addToCart(product)} hover>
+                                    <TableRow key={product.id} className="product-row" hover>
                                         <TableCell>{product.name}</TableCell>
                                         <TableCell>{product.price}</TableCell>
+                                        <TableCell><Icon onClick={this.addToCart(product)} color="action" hover></Icon></TableCell>
                                     </TableRow>
                                 )
                             })}

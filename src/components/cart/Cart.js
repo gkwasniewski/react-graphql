@@ -12,21 +12,16 @@ class Cart extends Component {
     
     render() {
 
+        //Render single cart item
         const productItem = this.props.products.map(element => {
             return <CartItem id={element.id} name={element.name} price={element.price} key={element.id}></CartItem>
         });
 
+        //Sum products cost
         const sumProductsPrice = _.sumBy(this.props.products, (o) => { return parseFloat(o.price); })
 
         return (     
             <div>
-                <AppBar>
-                    <Toolbar>
-                        <Typography variant="title" color="inherit">
-                            Photos
-                        </Typography>
-                    </Toolbar>
-                </AppBar>
                 <Paper className="cart-container">{productItem}</Paper>
                 <Paper className="cart-total">
                     <p>Total items: {this.props.products.length}</p>
