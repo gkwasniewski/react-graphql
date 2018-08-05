@@ -2,7 +2,23 @@
     margin-top: 2%;
     margin-left: 2%;
     min-width: 45vw;
-    height: 90vh;
+    height: 70vh;
     overflow-x: auto;
     // background-color: #bdc3c7 !important;
+}
+
+.cart-total {
+    background-color: #3f51b5 !important;
+    color: #ecf0f1;
+    margin-top: 2%;
+    margin-left: 2%;
+    min-width: 45vw;
+    height: 18.2vh;
+    
+    
+        P {
+            font-size: 20px;
+            padding-left: 5%;
+            padding-top: 4%;
+        }
 }

@@ -1,12 +1,13 @@
 .product-list__loader {
-    margin-left: 50%;
+    margin-left: 25%;
     margin-top: 40vh;
+    min-width: 28vw;
 }
 
 .container {
     margin-top: 1%;
     margin-left: 2%;
-    width: 50vw;
+    min-width: 50vw;
     height: 90vh;
     overflow-x: auto;
     
