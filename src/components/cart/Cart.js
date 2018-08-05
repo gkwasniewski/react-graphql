@@ -13,18 +13,19 @@ class Cart extends Component {
     render() {
 
         //Render single cart item
-        const productItem = this.props.products.map(element => {
-            return <CartItem id={element.id} name={element.name} price={element.price} key={element.id}></CartItem>
+        const productItem = this.props.products.map((element, index) => {
+            return <CartItem id={element.id} name={element.name} price={element.price} key={element.id} quantity={element.quantity}></CartItem>
         });
 
-        //Sum products cost
+        //Sum products
         const sumProductsPrice = _.sumBy(this.props.products, (o) => { return parseFloat(o.price); })
+        const sumTotalItems = _.sumBy(this.props.products, (o) => { return parseFloat(o.quantity); })
 
         return (     
             <div>
                 <Paper className="cart-container">{productItem}</Paper>
                 <Paper className="cart-total">
-                    <p>Total items: {this.props.products.length}</p>
+                    <p>Total items: {sumTotalItems}</p>
                     <p>Total price: {sumProductsPrice}</p>
                 </Paper>
             </div>

@@ -6,6 +6,7 @@ import { Table, TableBody, TableCell, TableHead, TableRow } from '@material-ui/c
 import Paper from '@material-ui/core/Paper';
 import Icon from '@material-ui/icons/AddCircleOutline'
 import Loader from 'react-loader-spinner'
+import TextField from '@material-ui/core/TextField';
 
 import store from '../../store'
 import './ProductList.css';
@@ -24,7 +25,8 @@ class ProductList extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            data: []
+            data: [],
+            quantity: ''
         }
     }
 
@@ -39,12 +41,16 @@ class ProductList extends Component {
         }
     };
 
+    handleChange = (e) => {
+        this.setState({quantity: e.currentTarget.value})
+    }
     //Add item to cart
     addToCart = (product) => (e) => {
         store.dispatch({type: 'ADD_TO_CART', data: {
             'id': product.id, 
             'name': product.name, 
-            'price': product.price
+            'price': product.price,
+            'quantity': this.state.quantity
             }
         })
     }
@@ -94,7 +100,16 @@ class ProductList extends Component {
                                     <TableRow key={product.id} className="product-row" hover>
                                         <TableCell>{product.name}</TableCell>
                                         <TableCell>{product.price}</TableCell>
-                                        <TableCell><Icon onClick={this.addToCart(product)} color="action" hover></Icon></TableCell>
+                                        <TableCell>
+                                            <TextField
+                                                onChange={this.handleChange}
+                                                id="number"
+                                                label="Quantity"
+                                                type="number"
+                                                margin="normal"
+                                            />
+                                            <Icon onClick={this.addToCart(product, this.props.quantity)} color="action"></Icon>
+                                        </TableCell>
                                     </TableRow>
                                 )
                             })}

@@ -8,6 +8,8 @@ const reducer = (state = initialState, action) => {
             return state.concat([action.data])
         case 'DELETE_FROM_CART':
             return state.filter((data) => data.id !== action.data.id);
+        case 'SEARCH_PRODUCTS': 
+            console.log(action.data.name)
         default:
             return state
         }

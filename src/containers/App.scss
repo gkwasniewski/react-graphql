@@ -1,3 +1,18 @@
+.search-input {
+    color: white;
+
+    label {
+        color: white !important;
+    }
+    #search {
+        color: white;
+    }
+    div::after,
+    div::before {
+        border-bottom: 2px solid white;
+    }
+}
+
 .app-container {
     display: flex;
 }

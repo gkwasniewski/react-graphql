@@ -27,10 +27,13 @@ class CartItem extends Component {
                             {this.props.name}
                         </Typography>
                         <Typography component="h2" className="cart-product-item__text">
-                            Price: {this.props.price}
+                            Price: {this.props.quantity * this.props.price}
                         </Typography>
                         <Typography component="p" className="cart-product-item__text">
                             Product ID: {this.props.id}
+                        </Typography>
+                        <Typography component="p" className="cart-product-item__text">
+                            Quantity: {this.props.quantity}
                         </Typography>
                         <DeleteOutlinedIcon onClick={this.addToCart(this.props.id)}className="cart-product-item--delete"/>
                     </CardContent>
