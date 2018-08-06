@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Paper from '@material-ui/core/Paper';
 import ShoppingCart from '@material-ui/icons/ShoppingCart'
+import AttachMoney from '@material-ui/icons/AttachMoney'
 import _ from 'lodash';
 
 import './Cart.css';
@@ -28,8 +29,9 @@ class Cart extends Component {
             <div>
                 <Paper className="cart-container">{productItem}</Paper>
                 <Paper className="cart-total">
-                    <ShoppingCart className="cart-total__icon"/>
+                    <ShoppingCart className="cart-total-items__icon"/>
                     <p>Total items: {sumTotalItems}</p>
+                    <AttachMoney className="cart-total-price__icon"/>
                     <p>Total price: {sumProductsPrice}$</p>
                 </Paper>
             </div>
