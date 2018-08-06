@@ -64,7 +64,7 @@ class ProductList extends Component {
     //Filter product list
     filterProducts = (dataProducts) => (e) => {
         const inputValue = e.currentTarget.value;
-        let filteredResults = dataProducts.filter((data) => { return data.name.includes(inputValue)});
+        const filteredResults = dataProducts.filter((data) => { return data.name.includes(inputValue)});
         
         this.setState({data: filteredResults})
     }
