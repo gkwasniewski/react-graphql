@@ -150,6 +150,7 @@ class ProductList extends Component {
                                                 type="number"
                                                 margin="normal"
                                                 className="product-list-item--quantity"
+                                                inputProps={{ min: "0", step: "1" }}
                                             />
                                             <AddShoppingCart onClick={this.addToCart(product, this.props.quantity)} color="action" className="product-list-item--add-to-cart"></AddShoppingCart>
                                         </TableCell>

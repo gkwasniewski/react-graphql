@@ -1,5 +1,4 @@
 import { createStore } from 'redux';
-import _ from 'lodash';
 
 const initialState = [];
 
@@ -12,7 +11,7 @@ const reducer = (state = initialState, action) => {
                     id: action.data.id,
                     name: action.data.name,
                     price: action.data.price,
-                    quantity: parseFloat(state[itemIndex].quantity) + parseFloat(action.data.quantity)
+                    quantity: state[itemIndex].quantity + action.data.quantity
                 })
                 return [...state]
             } else {
@@ -28,7 +27,6 @@ const reducer = (state = initialState, action) => {
         }
     }
    
-
 const store = createStore(reducer);
 
 export default store; 
