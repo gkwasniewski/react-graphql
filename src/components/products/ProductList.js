@@ -69,7 +69,7 @@ class ProductList extends Component {
                 'id': product.id, 
                 'name': product.name, 
                 'price': product.price,
-                'quantity': this.state.quantity
+                'quantity': parseFloat(this.state.quantity)
                 }
             })
         }
