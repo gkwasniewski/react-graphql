@@ -20,7 +20,7 @@ const reducer = (state = initialState, action) => {
         case 'DELETE_FROM_CART':
             return state.filter((data) => data.id !== action.data.id);
         case 'SEARCH_PRODUCTS': 
-            console.log(action.data.name)
+            console.log(action.data)
             /* falls through */
         default:
             return state

@@ -20,15 +20,6 @@ class App extends Component {
     })
   }
 
-  //Filter product list
-  filterProducts = (e) => {
-    console.log(e.currentTarget.value)
-    store.dispatch({type: 'SEARCH_PRODUCTS', data: {
-        'name': e.currentTarget.value, 
-      }
-    })
-  }
-
   render() {
     console.log(this.props)
     return (
@@ -38,13 +29,6 @@ class App extends Component {
             <Typography variant="title" color="inherit">
               React GraphQL
             </Typography>
-            <TextField
-              id="search"
-              label="Search products"
-              fullWidth
-              className="search-input"
-              onChange={this.filterProducts}
-            />
           </Toolbar>
         </AppBar>
         <div className="app-container">

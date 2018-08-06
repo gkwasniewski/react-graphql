@@ -6,10 +6,10 @@
     margin-top: 35%;
 }
 .cart-container {
-    margin-top: 2%;
-    margin-left: 2%;
+    margin-top: 10%;
+    margin-left: 6%;
     min-width: 45vw;
-    height: 70vh;
+    height: 65vh;
     overflow-x: auto;
     // background-color: #bdc3c7 !important;
 }
@@ -20,14 +20,14 @@
     background-color: #009688 !important;
     color: #ecf0f1;
     margin-top: 2%;
-    margin-left: 2%;
+    margin-left: 6%;
     min-width: 45vw;
-    height: 18.2vh;
+    height: 13.5vh;
 
         .cart-total__icon {
             height: 50px;
             width: 50px;
-            padding-top: 8%;
+            padding-top: 5%;
             padding-left: 5%;
         }
 
@@ -36,7 +36,7 @@
             padding: 0;
             font-size: 20px;
             text-align: center;
-            padding-top: 10%;
+            padding-top: 6.5%;
             padding-left: 4%;
         }
 }
