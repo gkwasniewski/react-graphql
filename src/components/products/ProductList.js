@@ -71,8 +71,8 @@ class ProductList extends Component {
 
     //Add item to cart
     addToCart = (product) => (e) => {
-        if (this.state.quantity <= 0) {
-            return
+        if(this.state.quantity <= 0) {
+            return;
         } else {
             store.dispatch({type: 'ADD_TO_CART', data: {
                 'id': product.id, 
@@ -133,7 +133,7 @@ class ProductList extends Component {
                
                 return (
                     <div>
-                        <TextField 
+                        <TextField
                             id="search" 
                             label="Search products" 
                             fullWidth 

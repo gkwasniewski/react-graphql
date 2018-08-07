@@ -8,13 +8,19 @@
     width: 50vw !important;
     margin-left: 4% !important;
     margin-top: 2% !important;
+
+    #search {
+        &:after {
+            border-bottom: 2px solid red !important;
+        }
+    }
 }
 
 .container {
-    margin-top: 2.5%;
+    margin-top: 2.7%;
     margin-left: 4%;
     min-width: 50vw;
-    height: 75vh;
+    height: 74.5vh;
     overflow-x: auto;
     
     .product-list-table {
