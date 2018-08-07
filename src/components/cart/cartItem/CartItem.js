@@ -10,7 +10,7 @@ import store from '../../../store'
 class CartItem extends Component {
 
     //Remove product from cart
-    addToCart = (id) => (e) => {
+    deleteFromCart = (id) => (e) => {
         store.dispatch({type: 'DELETE_FROM_CART', data: {
             'id': id
             }
@@ -34,7 +34,7 @@ class CartItem extends Component {
                         <Typography component="p" className="cart-product-item__text">
                             Quantity: {this.props.quantity}
                         </Typography>
-                        <RemoveShoppingCart onClick={this.addToCart(this.props.id)}className="cart-product-item--delete"/>
+                        <RemoveShoppingCart onClick={this.deleteFromCart(this.props.id)}className="cart-product-item--delete"/>
                     </CardContent>
                 </Card>
             </div>

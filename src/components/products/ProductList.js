@@ -32,7 +32,6 @@ class ProductList extends Component {
             quantity: 0,
             sortedNamesBy: '',
             sortedPriceBy: '',
-            input: ''
         }
     }
 
@@ -65,7 +64,11 @@ class ProductList extends Component {
     //Filter product list
     filterProducts = (dataProducts) => (e) => {
         const inputValue = e.currentTarget.value;
-        const filteredResults = dataProducts.filter((data) => { return data.name.toLowerCase().includes(inputValue.toLowerCase())});
+
+        const filteredResults = dataProducts.filter((data) => { 
+            return data.name.toLowerCase().includes(inputValue.toLowerCase())
+        });
+
         this.setState({data: filteredResults, filtered: true})
     }
 
@@ -166,14 +169,15 @@ class ProductList extends Component {
                                                 <TextField
                                                     onChange={this.handleChange}
                                                     id="number"
-                                                    label="Quantity"
+                                                    // label="Quantity"
                                                     type="number"
                                                     margin="normal"
                                                     className="product-list-item--quantity"
                                                     inputProps={{ min: "0", step: "1" }}
+                                                    defaultValue={this.state.quantity}
                                                 />
                                                 <AddShoppingCart onClick={this.addToCart(product, this.props.quantity)} color="action" className="product-list-item--add-to-cart"></AddShoppingCart>
-                                            </TableCell>
+                                            </TableCell>    
                                         </TableRow>
                                     )
                                 })}
