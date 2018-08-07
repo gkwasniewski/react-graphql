@@ -1,7 +1,31 @@
+$break-large: 1400px;
+
 .product-list__loader {
     margin-left: 25%;
     margin-top: 40vh;
     min-width: 25vw;
+}
+
+.product-list__error {
+    margin-left: 25%;
+    margin-top: 40vh;
+    min-width: 25vw;
+    color: #c51162;
+
+    @media screen and (max-width: $break-large) {
+        margin-left: 22%;
+        min-width: 27vw;
+    }
+    
+    .product-list__error--icon {
+        width: 30px;
+        height: 30px;
+        margin-left: 11%;
+
+        @media screen and (max-width: $break-large) {
+            margin-left: 14%;
+        }
+    }
 }
 
 .search-input {
@@ -28,7 +52,7 @@
     .product-list-table {
 
         .product-list-table__head {
-            background-color: #009688;
+            background-color: #018786;
             
             .product-list-table__head__title {
                 color: #ecf0f1;

@@ -7,6 +7,7 @@ import Paper from '@material-ui/core/Paper';
 import AddShoppingCart from '@material-ui/icons/AddShoppingCart'
 import ArrowUp from '@material-ui/icons/KeyboardArrowUp'
 import ArrowDown from '@material-ui/icons/KeyboardArrowDown'
+import ErrorOutline from '@material-ui/icons/ErrorOutline'
 import Loader from 'react-loader-spinner'
 import TextField from '@material-ui/core/TextField';
 
@@ -74,6 +75,7 @@ class ProductList extends Component {
 
     //Add item to cart
     addToCart = (product) => (e) => {
+        console.log(product.id)
         if(this.state.quantity <= 0) {
             return;
         } else {
@@ -98,14 +100,14 @@ class ProductList extends Component {
                 if (loading) {
                     return ( 
                         <div className="product-list__loader">
-                            <Loader type="TailSpin" color="#009688" height={80} width={80}/>
+                            <Loader type="TailSpin" color="#018786" height={80} width={80}/>
                         </div>
                     )
                 }
 
                 //Error handler
                 if (error) {
-                    return <div>Error</div>
+                    return <div className="product-list__error"><ErrorOutline className="product-list__error--icon"/><p>Failed to fetch data!</p></div>
                 }
                 
                 //Save results to variable
