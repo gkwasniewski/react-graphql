@@ -28,6 +28,7 @@ class ProductList extends Component {
         super(props)
         this.state = {
             data: [],
+            filtered: false,
             quantity: 0,
             sortedNamesBy: '',
             sortedPriceBy: '',
@@ -65,8 +66,7 @@ class ProductList extends Component {
     filterProducts = (dataProducts) => (e) => {
         const inputValue = e.currentTarget.value;
         const filteredResults = dataProducts.filter((data) => { return data.name.includes(inputValue)});
-        
-        this.setState({data: filteredResults})
+        this.setState({data: filteredResults, filtered: true})
     }
 
     //Add item to cart
@@ -108,7 +108,7 @@ class ProductList extends Component {
                 //Save results to variable
                 let productsToRender = this.state.data;
 
-                if (this.state.data.length === 0) {
+                if (this.state.data.length === 0 && this.state.filtered === false) {
                     productsToRender = data.products;
                 }
 
