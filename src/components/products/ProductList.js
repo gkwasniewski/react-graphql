@@ -65,7 +65,7 @@ class ProductList extends Component {
     //Filter product list
     filterProducts = (dataProducts) => (e) => {
         const inputValue = e.currentTarget.value;
-        const filteredResults = dataProducts.filter((data) => { return data.name.includes(inputValue)});
+        const filteredResults = dataProducts.filter((data) => { return data.name.toLowerCase().includes(inputValue.toLowerCase())});
         this.setState({data: filteredResults, filtered: true})
     }
 
