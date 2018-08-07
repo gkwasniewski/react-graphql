@@ -3,8 +3,10 @@
 ## Run project
 Runs the app in development mode.
 
-`npm install` & `npm start` 
-or 
+`npm install` & `npm start`
+
+or
+
 `yarn install` & `yarn start`
 
 ## Build project
