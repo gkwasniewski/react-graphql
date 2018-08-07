@@ -142,6 +142,7 @@ class ProductList extends Component {
                             fullWidth 
                             className="search-input"
                             onChange={this.filterProducts(data.products)}
+                            autoComplete='off'
                         />
                         <Paper className="container">
                             <Table className="product-list-table">
